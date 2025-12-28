@@ -1,0 +1,181 @@
+/* ================================
+   HOME PAGE
+   ================================ */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+/* ================================
+   HERO SECTION
+   ================================ */
+
+.hero {
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.hero-title span {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  margin-top: 1rem;
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* ================================
+   SECTION TITLE
+   ================================ */
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+  text-align: center;
+}
+
+/* ================================
+   MODEL GRID
+   ================================ */
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.model-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  cursor: default;
+}
+
+.model-card h3 {
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+/* ================================
+   STATUS BADGES
+   ================================ */
+
+.status {
+  width: fit-content;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-weight: 500;
+}
+
+.status.live {
+  background-color: rgba(34, 197, 94, 0.15);
+  color: var(--success);
+}
+
+.status.upcoming {
+  background-color: rgba(148, 163, 184, 0.15);
+  color: var(--muted);
+}
+
+/* ================================
+   FOOTER NOTE
+   ================================ */
+
+.note {
+  text-align: center;
+  max-width: 700px;
+  margin: auto;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+  }
+}
+/* ================================
+   STATS SECTION
+   ================================ */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 1.2rem;
+  color: var(--text);
+}
+
+.stat-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* ================================
+   HOW TO USE
+   ================================ */
+
+.usage {
+  max-width: 800px;
+  margin: auto;
+}
+
+.usage-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: var(--muted);
+  padding-left: 1.2rem;
+}
+
+.usage-list li {
+  list-style: disc;
+}
+
+/* ================================
+   PROJECT INCLUDES
+   ================================ */
+
+.includes {
+  text-align: center;
+}
+
+.includes-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.includes-grid .card {
+  font-size: 0.9rem;
+  color: var(--text);
+}

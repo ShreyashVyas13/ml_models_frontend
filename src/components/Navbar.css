@@ -1,0 +1,310 @@
+/* ================================
+   NAVBAR CONTAINER
+   ================================ */
+.navbar {
+  position: sticky;
+  top: 1.5rem;
+  z-index: 1000;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0.5rem 0.75rem;
+  border-radius: 100px;
+  
+  /* Default Solid State */
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.4s ease;
+}
+
+/* Scrolled / Glass State */
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-color: rgba(200, 200, 200, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .navbar.scrolled {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* ================================
+   LOGO
+   ================================ */
+.logo {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text);
+  white-space: nowrap;
+}
+.logo-dot { color: var(--accent); margin: 0 2px; font-size: 1.5rem; line-height: 0; }
+
+/* ================================
+   NAV LINKS (Desktop)
+   ================================ */
+.navbar-links {
+  display: flex;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.nav-link:hover {
+  color: var(--text);
+  text-decoration: none;
+  background-color: var(--bg);
+}
+
+.nav-link.active {
+  color: var(--accent);
+  background-color: transparent;
+  border-color: var(--accent);
+}
+
+/* ================================
+   RIGHT SIDE (Toggle + Menu)
+   ================================ */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: var(--bg);
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.theme-toggle:hover { transform: scale(1.1); }
+
+/* ================================
+   HAMBURGER ICON (Hidden on Desktop)
+   ================================ */
+.menu-icon {
+  display: none; /* Default hidden */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 25px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.menu-icon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--text);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hamburger Animation to 'X' */
+.menu-icon.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+.menu-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+.menu-icon.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ================================
+   MOBILE RESPONSIVE
+   ================================ */
+@media (max-width: 768px) {
+  .navbar {
+    width: 95%; /* Slightly wider on mobile */
+    padding: 0.5rem;
+    top: 1rem;
+  }
+
+  .menu-icon {
+    display: flex; /* Show hamburger */
+  }
+
+  /* Hide links by default, then show when .active */
+  .navbar-links {
+    position: absolute;
+    top: 110%; /* Puts it right below the pill */
+    left: 0;
+    width: 100%;
+    
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    
+    /* Glassmorphism for the Dropdown */
+    background-color: var(--card); /* Fallback */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    
+    /* Animation Logic */
+    opacity: 0;
+    transform: translateY(-20px);
+    pointer-events: none; /* Cannot click when hidden */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Dark mode specific for dropdown */
+  [data-theme="dark"] .navbar-links {
+    background: rgba(20, 20, 20, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /* Open State */
+  .navbar-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  /* Make links bigger on mobile */
+  .nav-link {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+    padding: 0.8rem 2rem;
+  }
+}
+/* ================================
+   UPDATES FOR HOME LINKS
+   ================================ */
+
+/* 1. Make the Logo Link invisible (no underline, inherit color) */
+.logo-link {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.logo-link:hover {
+  opacity: 0.8; /* Subtle feedback when hovering logo */
+}
+
+/* 2. Adjust the Home Icon alignment */
+.home-icon-link {
+  display: flex;       /* Centers the SVG icon */
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.8rem; /* Slightly smaller padding for icon-only button */
+}
+
+/* Optional: Ensure SVG matches text color */
+.nav-link svg {
+  stroke: currentColor;
+}
+
+/* ================================
+   NAV LINKS (Fix for Alignment)
+   ================================ */
+
+.navbar-links {
+  display: flex;
+  align-items: center; /* 1. Forces all list items to sit on the same center line */
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  /* 2. Make the link itself a Flex box so text/icons center inside the pill */
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-decoration: none;
+  
+  /* Standard padding for all buttons (Text or Icon) */
+  padding: 0.6rem 1.2rem;
+  
+  /* Ensures consistent height */
+  line-height: 1; 
+  
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+/* 3. OPTIONAL: If the icon feels too wide compared to text buttons, 
+   you can use slightly less horizontal padding JUST for the icon link */
+.home-icon-link {
+  padding: 0.6rem 0.8rem; /* Same vertical (0.6), less horizontal */
+}
+
+/* ================================
+   LOGO (Icon + Text)
+   ================================ */
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Space between icon and text */
+  cursor: default; /* Shows regular arrow cursor (not clickable) */
+  user-select: none; /* Prevents text selection highlighting */
+}
+
+/* The SVG Icon */
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--accent); /* Uses your main accent color (blue/indigo) */
+  /* Optional: Add a subtle glow */
+  filter: drop-shadow(0 0 2px rgba(79, 70, 229, 0.4));
+}
+
+/* The Text */
+.brand-text {
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--text);
+  white-space: nowrap;
+}

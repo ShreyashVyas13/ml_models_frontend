@@ -1,0 +1,125 @@
+/* ================================
+   GLOBAL THEME VARIABLES
+   ================================ */
+
+/* Light Theme (Default) */
+:root {
+  /* Backgrounds */
+  --bg: #f8fafc;
+  --card: #ffffff;
+
+  /* Text */
+  --text: #0f172a;
+  --muted: #64748b;
+
+  /* Accent & UI */
+  --accent: #2563eb;
+  --border: #e2e8f0;
+
+  /* States */
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+
+  /* Effects */
+  --radius: 12px;
+  --transition: 0.2s ease-in-out;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --bg: #020617;
+  --card: #0f172a;
+
+  /* Text */
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+
+  /* Accent & UI */
+  --accent: #38bdf8;
+  --border: #1e293b;
+
+  /* States */
+  --success: #22c55e;
+  --warning: #fbbf24;
+  --danger: #ef4444;
+}
+
+/* ================================
+   GLOBAL BASE STYLES
+   ================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+/* ================================
+   REUSABLE UTILITY CLASSES
+   ================================ */
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 1.5rem;
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* Buttons */
+.btn {
+  background-color: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity var(--transition);
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
