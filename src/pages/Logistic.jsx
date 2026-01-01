@@ -34,7 +34,7 @@ const Logistic = () => {
 
     try {
       // Make sure your backend port is correct
-      const res = await fetch("http://127.0.0.1:5000/predict", {
+      const res = await fetch("http://127.0.0.1:5000/predict-logistic", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData)
