@@ -26,7 +26,7 @@ function Linear() {
     setLoading(true);
 
     try {
-      const response = await fetch("https://ml-models-backend-i72f.onrender.com/predict", {
+      const response = await fetch("https://ml-models-backend-i72f.onrender.com/predict-linear", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
