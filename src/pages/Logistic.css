@@ -1,0 +1,260 @@
+/* =========================================
+   1. CSS VARIABLES (THEMING)
+   Matched exactly to your Linear.css
+   ========================================= */
+:root {
+  /* LIGHT MODE (Default) */
+  --bg-app: #f3f4f6;
+  --bg-card: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --border-color: #e5e7eb;
+  
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  
+  --error-bg: #fef2f2;
+  --error-text: #ef4444;
+  
+  --success-bg: #ecfdf5;
+  --success-text: #059669;
+  
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --radius: 20px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* DARK MODE - Supports both class and data-attribute from Navbar */
+[data-theme="dark"], .dark-mode {
+  --bg-app: #111827;
+  --bg-card: #1f2937;
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --border-color: #374151;
+  --primary: #6366f1;
+  --primary-hover: #818cf8;
+  --error-bg: #450a0a;
+  --error-text: #fca5a5;
+  --success-bg: #064e3b;
+  --success-text: #34d399;
+  --shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* =========================================
+   2. APP CONTAINER
+   ========================================= */
+.app-container {
+  min-height: 85vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  
+  /* Uses the variable now */
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  
+  transition: background-color var(--transition), color var(--transition);
+}
+
+/* =========================================
+   3. LOGISTIC CARD (Unique Class)
+   ========================================= */
+.logistic-card {
+  width: 100%;
+  max-width: 900px;
+  
+  /* Uses variables */
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--text-main);
+  
+  padding: 2.5rem;
+  transition: transform var(--transition), border-color var(--transition), background-color var(--transition);
+}
+
+.logistic-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+}
+
+/* =========================================
+   4. HEADER
+   ========================================= */
+.logistic-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.logistic-header h1 {
+  font-size: 1.8rem;
+  margin: 0;
+  /* Gradient text stays consistent */
+  background: -webkit-linear-gradient(45deg, var(--primary), #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logistic-header p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+/* =========================================
+   5. GRID & INPUTS
+   ========================================= */
+.logistic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.logistic-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.logistic-input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-left: 2px;
+}
+
+.logistic-input-group input,
+.logistic-input-group select {
+  width: 100%;
+  padding: 0.85rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  
+  /* Themed Variables */
+  border: 2px solid var(--border-color);
+  background-color: var(--bg-app); 
+  color: var(--text-main);
+  
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.logistic-input-group input:focus,
+.logistic-input-group select:focus {
+  border-color: var(--primary);
+  background-color: var(--bg-card);
+  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+}
+
+/* =========================================
+   6. BUTTON
+   ========================================= */
+.logistic-btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logistic-btn:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.4);
+}
+
+.logistic-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Loader */
+.logistic-loader {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* =========================================
+   7. RESULT BOX
+   ========================================= */
+.logistic-result {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  
+  /* Default background if needed */
+  background-color: var(--bg-app);
+}
+
+/* APPROVED STATE */
+.logistic-result.is-approved {
+  background-color: var(--success-bg);
+  border: 1px solid var(--success-text);
+  color: var(--success-text);
+}
+
+/* REJECTED STATE */
+.logistic-result.is-rejected {
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-text);
+  color: var(--error-text);
+}
+
+.logistic-icon {
+  font-size: 2.5rem;
+}
+
+.logistic-result-text h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.logistic-result-text p {
+  margin: 0.5rem 0 0;
+  opacity: 0.9;
+  font-weight: 600;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* =========================================
+   8. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+  .logistic-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .logistic-card {
+    padding: 1.5rem;
+  }
+}
