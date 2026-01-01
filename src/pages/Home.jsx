@@ -56,7 +56,7 @@ const Home = () => {
             <p className="muted">
               Binary classification problems using probability estimation.
             </p>
-            <span className="status upcoming">Coming Soon</span>
+            <span className="status live">Live</span>
           </div>
 
           <div className="card model-card">
